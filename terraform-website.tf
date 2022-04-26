@@ -40,7 +40,6 @@ resource "aws_security_group" "webserver_sg" {
 resource "aws_instance" "web-server" {
   ami                    = "ami-09558250a3419e7d0"
   instance_type          = "t2.micro"
-  key_name               = "afia"
   vpc_security_group_ids = ["${aws_security_group.webserver_sg.id}"]
 
   tags = {
@@ -64,7 +63,6 @@ resource "aws_instance" "web-server" {
       host        = self.public_ip
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("afia.pem")
     }
   }
 }
