@@ -64,7 +64,7 @@ resource "aws_instance" "web-server" {
       host        = self.public_ip
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("terraform2.pem")
+      private_key = file("afia.pem")
     }
   }
 }
